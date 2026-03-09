@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@plugin '../hero.js';
+/* Note: You may need to change the path to fit your project structure */
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+@utility container{
+    margin:auto
+    
+      @media (width >= 90rem /* 640px */) {
+        max-width: 40rem /* 640px */;}
+}
+@layer components{
+    .link{
+        @apply text-lg  font-semibold after:h-0.5  after:bg-blue-900 after:w-0 after:absolute relative after:bottom-0 after:start-0 pb-2 hover:after:w-full hover:transition-all after:duration-300 hover:font-bold
+    }
+    input{
+        @apply bg-gray-100 w-full px-1 py-2.5 flex my-2 border-2 rounded-xl border-zinc-400 focus:border-blue-200 outline-0
+    }
+}
