@@ -1,20 +1,87 @@
 @import "tailwindcss";
 
 @plugin '../hero.js';
-/* Note: You may need to change the path to fit your project structure */
 @source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
 @custom-variant dark (&:is(.dark *));
-@utility container{
-    margin:auto
-    
-      @media (width >= 90rem /* 640px */) {
-        max-width: 40rem /* 640px */;}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
-@layer components{
-    .link{
-        @apply text-lg  font-semibold after:h-0.5  after:bg-blue-900 after:w-0 after:absolute relative after:bottom-0 after:start-0 pb-2 hover:after:w-full hover:transition-all after:duration-300 hover:font-bold
+
+:root {
+  --background: oklch(0.98 0.01 260);
+  --foreground: oklch(0.2 0.02 260);
+  --primary: oklch(0.55 0.2 260); /* Deep Indigo/Violet */
+  --secondary: oklch(0.9 0.05 260);
+  --accent: oklch(0.65 0.25 330); /* Vibrant Pink/Magenta accent */
+}
+
+.dark {
+  --background: oklch(0.12 0.02 260);
+  --foreground: oklch(0.98 0.01 260);
+  --primary: oklch(0.65 0.2 260);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+  }
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+  .glass-card {
+    @apply bg-white/50 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/5 shadow-xl rounded-3xl;
+  }
+}
+
+@utility container {
+  margin: auto;
+  @media (width >= 90rem) {
+    max-width: 40rem;
+  }
+}
+
+@layer components {
+  .link {
+    @apply text-lg font-semibold relative pb-1 transition-all duration-300;
+    &::after {
+      content: '';
+      @apply absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
     }
-    input{
-        @apply bg-gray-100 w-full px-1 py-2.5 flex my-2 border-2 rounded-xl border-zinc-400 focus:border-blue-200 outline-0
+    &:hover {
+      @apply text-primary;
+      &::after {
+        @apply w-full;
+      }
     }
+  }
+  
+  input {
+    @apply bg-white/50 dark:bg-black/20 backdrop-blur-sm w-full px-4 py-3 flex my-2 border border-white/30 dark:border-white/10 rounded-2xl outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300;
+  }
 }

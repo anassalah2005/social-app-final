@@ -5,7 +5,9 @@ export const AuthContext = createContext()
 export default function AuthContextProvider({ children }) {
 
   const [token, setToken] = useState(() => {
-    return localStorage.getItem("token");
+    const savedToken = localStorage.getItem("token");
+    if (savedToken === "null" || savedToken === "undefined" || !savedToken) return null;
+    return savedToken;
   });
 
   return (

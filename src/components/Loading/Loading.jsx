@@ -2,119 +2,26 @@ import {Card, Skeleton} from "@heroui/react";
 
 export default function Loading() {
   return (
-    <div>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
-    <Card className="w-full space-y-5 p-4 my-3.5 mx-auto" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300" />
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200" />
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">
-          <div className="h-3 w-2/5 rounded-lg bg-default-300" />
-        </Skeleton>
-      </div>
-    </Card>
+    <div className="space-y-6">
+      {[1, 2, 3].map((i) => (
+        <Card key={i} className="w-full max-w-3xl mx-auto glass-card p-6 border-none" radius="lg">
+          <div className="flex gap-4 items-center mb-4">
+            <Skeleton className="rounded-full w-12 h-12" />
+            <div className="space-y-2 flex-1">
+              <Skeleton className="w-1/3 h-3 rounded-lg" />
+              <Skeleton className="w-1/4 h-2 rounded-lg" />
+            </div>
+          </div>
+          <div className="space-y-3">
+            <Skeleton className="w-full h-24 rounded-2xl" />
+            <div className="flex gap-2">
+              <Skeleton className="w-16 h-8 rounded-full" />
+              <Skeleton className="w-16 h-8 rounded-full" />
+              <Skeleton className="w-16 h-8 rounded-full" />
+            </div>
+          </div>
+        </Card>
+      ))}
     </div>
   );
 }
