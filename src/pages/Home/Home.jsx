@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CreatePostDesign from "../../components/CreatePostDesign/CreatePostDesign";
+import CreatePostDesign from "../../components/createPostDesign/CreatePostDesign";
 import CardStyle from "../../components/CardStyle/CardStyle";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
